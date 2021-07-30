@@ -90,13 +90,14 @@ body{
     height: 50px;
     border: none;
     border-radius: 5px;
-    font-family: 'Rubik';
     font-weight: 500;
     font-size: 1rem;
     box-sizing: content-box;
     padding: 3px;
     margin: 5px;
     box-shadow: 0 0 10px hsl(229, 8%, 60%) ;
+    font-family: 'Rubik', sans-serif;
+    
 }
 .blue{
     background: hsl(231, 69%, 60%);
@@ -181,21 +182,56 @@ body{
 .browser-card .btn{
     width: 250px;
 }
+
 .faq-accordion{
     text-align: left;
     width: 90%;
     margin: auto;
 }
-.faq-accordion p{
+.accordion-item{
+    border-bottom: 1px solid hsl(229, 8%, 60%);
+}
+.faq-accordion .para{
     padding-left: 0;
     line-height: 1.8;
-    border-bottom: 1px solid grey;
-    display: none;
+    height: 0;
+    overflow-y:hidden ;
+    overflow: hidden;
+    transition: all .4s ease-in-out;
+    padding-top: 10px;
+
 }
 .faq-accordion h4{
     font-weight: 100;
-    padding: 20px 0;
+    padding: 25px 0 0 0;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+
 }
+
+.question.open::after{
+    transform: rotate(180deg);
+}
+
+.faq-accordion h4::after{
+    content: '';
+    background-image: url(images/icon-arrow.svg);
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+    background-position: center center;
+    background-size: contain;
+    align-items: center;
+    transition: transform 300ms ease-in-out;
+}
+.open{
+    color:hsl(0, 94%, 66%);
+}
+.show{
+    height: 170px;
+}
+
 @media  (min-width:800px) {
     .navbar-links-burger img{
         display: none;
